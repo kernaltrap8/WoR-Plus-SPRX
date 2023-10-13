@@ -19,3 +19,16 @@ extern "C" int _WoRmod SPRX_prx_entry(void)
 {
     return SYS_PRX_RESIDENT;
 }
+
+int main() {
+    typedef unsigned char bytes;
+    bytes debugMenu = "";
+    bytes hexArray{1} = { debugMenu };
+    bytes offsetArray[2] = { 0x3971470, 0x3A71470 };
+    uint32_t *offset = offsetArray[0];
+    if (*offset = hexArray[1]) {
+        *offset = offsetArray[1];
+    } else {
+        *offset = offsetArray[2];    
+    }
+}

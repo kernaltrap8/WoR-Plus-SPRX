@@ -5,8 +5,9 @@ SYS_MODULE_START( _ghwor_plugin_prx_entry );
 SYS_MODULE_STOP( _ghwor_plugin_prx_stop );
 
 namespace Script {
-	void *sp_script_manager = (void *)NULL; //eventually put a hex value here as the script manager pointer
+	void *sp_script_manager = (void *)0x5AC78; //possibly the script manager??? dunno yet :3
 
+	//needs to be updated for WoR to allow script running :3
 	opd_s runscript_t = { (0x441530LL),  BASE_TOC };
 	int64_t (*RunScript)(int64_t, CStruct*, unsigned int*, int64_t)  = (int64_t (*)(int64_t crc, CStruct* cstruct,  unsigned int *unk, int64_t cscript))&runscript_t;	
 

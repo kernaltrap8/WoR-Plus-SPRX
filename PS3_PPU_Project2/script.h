@@ -1,6 +1,6 @@
 #ifndef _SCRIPT_H
 #define _SCRIPT_H
-#include "../main.h"
+#include "main.h"
 #include "struct.h"
 namespace Script {
 	typedef struct _CSymbolTableEntry{
@@ -13,13 +13,10 @@ namespace Script {
 		void *next;
 	} CSymbolTableEntry;
 
-
 	extern int64_t (*RunScript)(int64_t, CStruct*, unsigned int*, int64_t);
 
 	CSymbolTableEntry* Resolve(int32_t checksum);
 	void InsertSymbol(CSymbolTableEntry *entry);
-
-	
 
 	extern void *sp_script_manager;
 };

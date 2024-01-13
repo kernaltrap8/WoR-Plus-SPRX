@@ -1,13 +1,9 @@
 
-
 #include <cellstatus.h>
 #include <sys/prx.h>
-
-
 #include "main.h"
 #include "printf.h"
 #include "syscalls.h"
-
 #include "detour\Detour.h"
 #include "scripting/script.h"
 
@@ -23,7 +19,6 @@ sys_ppu_thread_t gWORTthreadID = SYS_PPU_THREAD_ID_INVALID;
 // An exported function is needed to generate the project's PRX stub export library
 extern "C" int _wor_tests_export_function(void)
 {
-	
     return CELL_OK;
 }
 
@@ -48,6 +43,9 @@ extern "C" uint64_t strlen(const char *s) {
 
 extern "C" int _wor_tests_prx_entry(void)
 {
+	//Sleep 1min before patches
+	printf("Sleeping for 1 minute before applying patches.\n WoRmod v1.0r3-alpha loaded.\n");
+	_sys_timer_sleep(60);
 	// enable_button_cheats | for debug menu
 	Script::CSymbolTableEntry* enable_button_cheats_symbol = Script::Resolve(720971780);
 	printf("enable_button_cheats symbol: %p\n", enable_button_cheats_symbol);

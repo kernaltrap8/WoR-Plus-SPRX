@@ -91,7 +91,7 @@ extern "C" int _wor_tests_prx_entry(void)
 
 	if (debug_menu_popup_qsymbol) {
 		printf("debug_menu_popup qsymbol data: %p %d %d\n", debug_menu_popup_qsymbol->union_type, debug_menu_popup_qsymbol->type, debug_menu_popup_qsymbol->sourceFileNameChecksum);
-		debug_menu_popup_symbol->union_type = 2381295399;
+		debug_menu_popup_qsymbol->union_type = 2381295399;
 	}
 	// apply patches
 	CFuncs::RegisterCFuncs();

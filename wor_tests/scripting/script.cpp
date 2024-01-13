@@ -3,8 +3,8 @@
 namespace Script {
 	void *sp_symbol_table = (void *)0x9E1BFC;
 
-	opd_t runscript_t = { (0x441530LL),  BASE_TOC };
-	int64_t (*RunScript)(int64_t, CStruct*, unsigned int*, int64_t)  = (int64_t (*)(int64_t crc, CStruct* cstruct,  unsigned int *unk, int64_t cscript))&runscript_t;	
+	opd_t runscript_t = { (0x349800), BASE_TOC };
+	int64_t(*RunScript)(int64_t, CStruct*, unsigned int *, uint8_t, uint64_t, uint64_t) = (int64_t(*)(int64_t crc, CStruct* cstruct, unsigned int *unk, uint8_t unk1, uint64_t unk2, uint64_t unk3))&runscript_t;
 
 	//Resolve global symbols
 	CSymbolTableEntry* Resolve(int32_t checksum) {

@@ -14,7 +14,7 @@ namespace Script {
 	} CSymbolTableEntry;
 
 
-	extern int64_t (*RunScript)(int64_t, CStruct*, unsigned int*, int64_t);
+	extern int64_t(*RunScript)(int64_t crc, CStruct* cstruct, unsigned int *unk, uint8_t unk1, uint64_t unk2, uint64_t unk3);
 
 	CSymbolTableEntry* Resolve(int32_t checksum);
 	void InsertSymbol(CSymbolTableEntry *entry);

@@ -69,6 +69,30 @@ extern "C" int _wor_tests_prx_entry(void)
 		printf("debug_use_motion_blur symbol data: %p %d %d\n", debug_use_motion_blur_symbol->union_type, debug_use_motion_blur_symbol->type, debug_use_motion_blur_symbol->sourceFileNameChecksum);
 		debug_use_motion_blur_symbol->union_type = 0;
 	}
+	// allow_controller_for_all_instruments
+	Script::CSymbolTableEntry* allow_controller_for_all_instruments_symbol = Script::Resolve(2590800659);
+	printf("allow_controller_for_all_instruments symbol: %p\n", allow_controller_for_all_instruments_symbol);
+
+	if (allow_controller_for_all_instruments_symbol) {
+		printf("debug_use_motion_blur symbol data: %p %d %d\n", allow_controller_for_all_instruments_symbol->union_type, allow_controller_for_all_instruments_symbol->type, allow_controller_for_all_instruments_symbol->sourceFileNameChecksum);
+		allow_controller_for_all_instruments_symbol->union_type = 1;
+	}
+	// QString patches
+	Script::CSymbolTableEntry* debug_menu_qsymbol = Script::Resolve(2950671652);
+	printf("debug_menu qsymbol: %p\n", debug_menu_qsymbol);
+
+	if (debug_menu_qsymbol) {
+		printf("debug_menu qsymbol data: %p %d %d\n", debug_menu_qsymbol->union_type, debug_menu_qsymbol->type, debug_menu_qsymbol->sourceFileNameChecksum);
+		debug_menu_qsymbol->union_type = 623432161;
+	}
+	//Debug Menu
+	Script::CSymbolTableEntry* debug_menu_popup_qsymbol = Script::Resolve(681849159);
+	printf("debug_menu_popup qsymbol: %p\n", debug_menu_qsymbol);
+
+	if (debug_menu_popup_qsymbol) {
+		printf("debug_menu_popup qsymbol data: %p %d %d\n", debug_menu_popup_qsymbol->union_type, debug_menu_popup_qsymbol->type, debug_menu_popup_qsymbol->sourceFileNameChecksum);
+		debug_menu_popup_symbol->union_type = 2381295399;
+	}
 	// apply patches
 	CFuncs::RegisterCFuncs();
 

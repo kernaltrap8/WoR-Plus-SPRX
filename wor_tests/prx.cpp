@@ -1,4 +1,3 @@
-
 #include <cellstatus.h>
 #include <sys/prx.h>
 #include "main.h"
@@ -43,9 +42,9 @@ extern "C" uint64_t strlen(const char *s) {
 
 extern "C" int _wor_tests_prx_entry(void)
 {
-	//Sleep 1min before patches
-	printf("Sleeping for 1 minute before applying patches.\n WoRmod v1.0r3-alpha loaded.\n");
-	_sys_timer_sleep(60);
+	//Sleep 30sec before patches
+	printf("Sleeping for 30sec before applying patches.\nWoRmod v1.0r3-alpha loaded.\n");
+	_sys_timer_sleep(30);
 	// enable_button_cheats | for debug menu
 	Script::CSymbolTableEntry* enable_button_cheats_symbol = Script::Resolve(720971780);
 	printf("enable_button_cheats symbol: %p\n", enable_button_cheats_symbol);
@@ -70,7 +69,7 @@ extern "C" int _wor_tests_prx_entry(void)
 		printf("debug_use_motion_blur symbol data: %p %d %d\n", debug_use_motion_blur_symbol->union_type, debug_use_motion_blur_symbol->type, debug_use_motion_blur_symbol->sourceFileNameChecksum);
 		debug_use_motion_blur_symbol->union_type = 0;
 	}
-	// apply changes to qsymbols
+	// apply patches
 	CFuncs::RegisterCFuncs();
 
 	// Exit thread using directly the syscall and not the user mode library or else we will crash

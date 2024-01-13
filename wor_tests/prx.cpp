@@ -5,6 +5,7 @@
 #include "syscalls.h"
 #include "detour\Detour.h"
 #include "scripting/script.h"
+#define VERSION = "v1.0r5 alpha"
 
 SYS_MODULE_INFO( wor_tests, 0, 1, 1);
 SYS_MODULE_START( _wor_tests_prx_entry );
@@ -43,7 +44,7 @@ extern "C" uint64_t strlen(const char *s) {
 extern "C" int _wor_tests_prx_entry(void)
 {
 	//Sleep 30sec before patches
-	printf("Sleeping for 30sec before applying patches.\nWoRmod v1.0r3-alpha loaded.\n");
+	printf("Sleeping for 30sec before applying patches.\nWoRmod %s loaded.\n", VERSION);
 	_sys_timer_sleep(30);
 	// enable_button_cheats | for debug menu
 	Script::CSymbolTableEntry* enable_button_cheats_symbol = Script::Resolve(720971780);
@@ -77,7 +78,7 @@ extern "C" int _wor_tests_prx_entry(void)
 		printf("debug_use_motion_blur symbol data: %p %d %d\n", allow_controller_for_all_instruments_symbol->union_type, allow_controller_for_all_instruments_symbol->type, allow_controller_for_all_instruments_symbol->sourceFileNameChecksum);
 		allow_controller_for_all_instruments_symbol->union_type = 1;
 	}
-	// QString patches
+	// QString patches | NOT YET WORKING
 	Script::CSymbolTableEntry* debug_menu_qsymbol = Script::Resolve(2950671652);
 	printf("debug_menu qsymbol: %p\n", debug_menu_qsymbol);
 
@@ -95,8 +96,7 @@ extern "C" int _wor_tests_prx_entry(void)
 	}
 	// apply patches
 	CFuncs::RegisterCFuncs();
-
-	// Exit thread using directly the syscall and not the user mode library or else we will crash
+	// Exit thread using syscall directly and not the user mode library or else we will crash
 	_sys_ppu_thread_exit(0);
     return SYS_PRX_RESIDENT;
 }

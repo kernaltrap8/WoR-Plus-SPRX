@@ -78,13 +78,13 @@ extern "C" int _wor_tests_prx_entry(void)
 		printf("allow_controller_for_all_instruments data: %p %d %d\n", allow_controller_for_all_instruments_symbol->union_type, allow_controller_for_all_instruments_symbol->type, allow_controller_for_all_instruments_symbol->sourceFileNameChecksum);
 		allow_controller_for_all_instruments_symbol->union_type = 1;
 	}
-	// gpu_vsync_time_interval | testing 60fps patches
-	Script::CSymbolTableEntry* gpu_vsync_time_interval_symbol = Script::Resolve(1366705139);
-	printf("gpu_vsync_time_interval symbol: %p\n", gpu_vsync_time_interval_symbol);
+	// g_career_skip_naration
+	Script::CSymbolTableEntry* g_career_skip_naration_symbol = Script::Resolve(2634030452);
+	printf("g_career_skip_naration symbol: %p\n", g_career_skip_naration_symbol);
 
-	if (gpu_vsync_time_interval_symbol) {
-		printf("gpu_vsync_time_interval symbol data: %p %d %d\n", gpu_vsync_time_interval_symbol->union_type, gpu_vsync_time_interval_symbol->type, gpu_vsync_time_interval_symbol->sourceFileNameChecksum);
-		gpu_vsync_time_interval_symbol->union_type = 60;
+	if (g_career_skip_naration_symbol) {
+		printf("g_career_skip_naration symbol data: %p %d %d\n", g_career_skip_naration_symbol->union_type, g_career_skip_naration_symbol->type, g_career_skip_naration_symbol->sourceFileNameChecksum);
+		g_career_skip_naration_symbol->union_type = 60;
 	}
 	// QString patches | NOT YET WORKING
 	Script::CSymbolTableEntry* debug_menu_qsymbol = Script::Resolve(2950671652);

@@ -84,7 +84,7 @@ extern "C" int _wor_tests_prx_entry(void)
 
 	if (g_career_skip_naration_symbol) {
 		printf("g_career_skip_naration symbol data: %p %d %d\n", g_career_skip_naration_symbol->union_type, g_career_skip_naration_symbol->type, g_career_skip_naration_symbol->sourceFileNameChecksum);
-		g_career_skip_naration_symbol->union_type = 60;
+		g_career_skip_naration_symbol->union_type = 1;
 	}
 	// QString patches | NOT YET WORKING
 	Script::CSymbolTableEntry* debug_menu_qsymbol = Script::Resolve(2950671652);

@@ -5,7 +5,7 @@
 #include "syscalls.h"
 #include "detour\Detour.h"
 #include "scripting/script.h"
-#define VERSION "v1.0r7 alpha"
+#define VERSION "v1.1r1 alpha"
 
 SYS_MODULE_INFO( wor_tests, 0, 1, 1);
 SYS_MODULE_START( _wor_tests_prx_entry );
@@ -85,6 +85,14 @@ extern "C" int _wor_tests_prx_entry(void)
 	if (g_career_skip_naration_symbol) {
 		printf("g_career_skip_naration symbol data: %p %d %d\n", g_career_skip_naration_symbol->union_type, g_career_skip_naration_symbol->type, g_career_skip_naration_symbol->sourceFileNameChecksum);
 		g_career_skip_naration_symbol->union_type = 1;
+	}
+	// unlock_Cheat_SuperUser
+	Script::CSymbolTableEntry* unlock_Cheat_SuperUser_symbol = Script::Resolve(785547704);
+	printf("unlock_Cheat_SuperUser symbol: %p\n", unlock_Cheat_SuperUser_symbol);
+
+	if (unlock_Cheat_SuperUser_symbol) {
+		printf("unlock_Cheat_SuperUser symbol data: %p %d %d\n", unlock_Cheat_SuperUser_symbol->union_type, unlock_Cheat_SuperUser_symbol->type, unlock_Cheat_SuperUser_symbol->sourceFileNameChecksum);
+		unlock_Cheat_SuperUser_symbol->union_type = 1;
 	}
 	// QString patches | NOT YET WORKING
 	Script::CSymbolTableEntry* debug_menu_qsymbol = Script::Resolve(2950671652);

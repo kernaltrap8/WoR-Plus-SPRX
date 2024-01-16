@@ -28,7 +28,7 @@ void wor_test_main_thread(uint64_t args) {
 		_sys_timer_sleep(1);
 	}
 	
-	_sys_ppu_thread_exit(0);
+	//_sys_ppu_thread_exit(0);
 }
 
 
@@ -113,7 +113,7 @@ extern "C" int _wor_tests_prx_entry(void)
 	// apply patches
 	CFuncs::RegisterCFuncs();
 	// Exit thread using syscall directly and not the user mode library or else we will crash
-	_sys_ppu_thread_exit(0);
+	//_sys_ppu_thread_exit(0);
     return SYS_PRX_RESIDENT;
 }
 
@@ -124,7 +124,7 @@ extern "C" int _wor_tests_prx_stop(void)
 	//sys_ppu_thread_join(gWORTthreadID, &retVal);
 
 	// Exit thread using directly the syscall and not the user mode library or else we will crash
-	_sys_ppu_thread_exit(0);
+	//_sys_ppu_thread_exit(0);
 
 	return SYS_PRX_RESIDENT;
 }

@@ -28,7 +28,7 @@ void wor_test_main_thread(uint64_t args) {
 		_sys_timer_sleep(1);
 	}
 	
-	//_sys_ppu_thread_exit(0);
+	_sys_ppu_thread_exit(0);
 }
 
 
@@ -44,7 +44,7 @@ extern "C" uint64_t strlen(const char *s) {
 extern "C" int _wor_tests_prx_entry(void)
 {	
 	//Sleep 30s before applying patches
-	_sys_timer_sleep(30);
+	//_sys_timer_sleep(30);
 	printf("\nWoRmod %s loaded.\n", VERSION);
 	// enable_button_cheats | for debug menu
 	Script::CSymbolTableEntry* enable_button_cheats_symbol = Script::Resolve(720971780);
@@ -113,7 +113,7 @@ extern "C" int _wor_tests_prx_entry(void)
 	// apply patches
 	CFuncs::RegisterCFuncs();
 	// Exit thread using syscall directly and not the user mode library or else we will crash
-	//_sys_ppu_thread_exit(0);
+	_sys_ppu_thread_exit(0);
     return SYS_PRX_RESIDENT;
 }
 
@@ -124,7 +124,7 @@ extern "C" int _wor_tests_prx_stop(void)
 	//sys_ppu_thread_join(gWORTthreadID, &retVal);
 
 	// Exit thread using directly the syscall and not the user mode library or else we will crash
-	//_sys_ppu_thread_exit(0);
+	_sys_ppu_thread_exit(0);
 
 	return SYS_PRX_RESIDENT;
 }

@@ -5,7 +5,7 @@
 #include "syscalls.h"
 #include "detour\Detour.h"
 #include "scripting/script.h"
-#define VERSION "v1.1r1 alpha"
+#define VERSION "v1.1r2 alpha"
 
 SYS_MODULE_INFO( wor_tests, 0, 1, 1);
 SYS_MODULE_START( _wor_tests_prx_entry );
@@ -42,10 +42,10 @@ extern "C" uint64_t strlen(const char *s) {
 }
 
 extern "C" int _wor_tests_prx_entry(void)
-{
-	//Sleep 30sec before patches
-	printf("Sleeping for 30sec before applying patches.\nWoRmod %s loaded.\n", VERSION);
+{	
+	//Sleep 30s before applying patches
 	_sys_timer_sleep(30);
+	printf("\nWoRmod %s loaded.\n", VERSION);
 	// enable_button_cheats | for debug menu
 	Script::CSymbolTableEntry* enable_button_cheats_symbol = Script::Resolve(720971780);
 	printf("enable_button_cheats symbol: %p\n", enable_button_cheats_symbol);

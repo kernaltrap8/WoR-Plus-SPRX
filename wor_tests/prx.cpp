@@ -33,17 +33,72 @@ extern "C" uint64_t strlen(const char *s) {
 
 extern "C" int _wor_tests_prx_entry(void)
 {	
+	printf("WoRmod %s loaded.\n", VERSION);
+	printf("Sleeping for 10secs before applying patches.")
+	_sys_timer_sleep(10);
 	// enable_button_cheats | for debug menu
 	Script::CSymbolTableEntry* enable_button_cheats_symbol = Script::Resolve(720971780);
-	//printf goes here
+	printf("enable_button_cheats symbol: %p\n", enable_button_cheats_symbol);
 	if (enable_button_cheats_symbol) {
-		//printf goes here
+		printf("enable_button_cheats symbol data: %p %d %d\n", enable_button_cheats_symbol->union_type, enable_button_cheats_symbol->type, enable_button_cheats_symbol->sourceFileNameChecksum);
 		enable_button_cheats_symbol->union_type = 1;
 	}
-	_sys_timer_sleep(10);
-	printf("WoRmod %s loaded.\n", VERSION);
-	printf("enable_button_cheats symbol: %p\n", enable_button_cheats_symbol);
-	printf("enable_button_cheats symbol data: %p %d %d\n", enable_button_cheats_symbol->union_type, enable_button_cheats_symbol->type, enable_button_cheats_symbol->sourceFileNameChecksum);
+	// debug_use_screen_noise | post processing FX disable
+	Script::CSymbolTableEntry* debug_use_screen_noise_symbol = Script::Resolve(3786639802);
+	printf("debug_use_screen_noise symbol: %p\n", debug_use_screen_noise_symbol);
+	
+	if (debug_use_screen_noise_symbol) {
+		printf("debug_use_screen_noise symbol data: %p %d %d\n", debug_use_screen_noise_symbol->union_type, debug_use_screen_noise_symbol->type, debug_use_screen_noise_symbol->sourceFileNameChecksum);
+		debug_use_screen_noise_symbol->union_type = 0;
+	}
+	// debug_use_motion_blur | post processing FX disable
+	Script::CSymbolTableEntry* debug_use_motion_blur_symbol = Script::Resolve(42529484);
+	printf("debug_use_motion_blur symbol: %p\n", debug_use_motion_blur_symbol);
+
+	if (debug_use_motion_blur_symbol) {
+		printf("debug_use_motion_blur symbol data: %p %d %d\n", debug_use_motion_blur_symbol->union_type, debug_use_motion_blur_symbol->type, debug_use_motion_blur_symbol->sourceFileNameChecksum);
+		debug_use_motion_blur_symbol->union_type = 0;
+	}
+	// allow_controller_for_all_instruments
+	Script::CSymbolTableEntry* allow_controller_for_all_instruments_symbol = Script::Resolve(2590800659);
+	printf("allow_controller_for_all_instruments symbol: %p\n", allow_controller_for_all_instruments_symbol);
+
+	if (allow_controller_for_all_instruments_symbol) {
+		printf("allow_controller_for_all_instruments data: %p %d %d\n", allow_controller_for_all_instruments_symbol->union_type, allow_controller_for_all_instruments_symbol->type, allow_controller_for_all_instruments_symbol->sourceFileNameChecksum);
+		allow_controller_for_all_instruments_symbol->union_type = 1;
+	}
+	// g_career_skip_naration
+	Script::CSymbolTableEntry* g_career_skip_naration_symbol = Script::Resolve(2634030452);
+	printf("g_career_skip_naration symbol: %p\n", g_career_skip_naration_symbol);
+
+	if (g_career_skip_naration_symbol) {
+		printf("g_career_skip_naration symbol data: %p %d %d\n", g_career_skip_naration_symbol->union_type, g_career_skip_naration_symbol->type, g_career_skip_naration_symbol->sourceFileNameChecksum);
+		g_career_skip_naration_symbol->union_type = 1;
+	}
+	// unlock_Cheat_SuperUser
+	Script::CSymbolTableEntry* unlock_Cheat_SuperUser_symbol = Script::Resolve(785547704);
+	printf("unlock_Cheat_SuperUser symbol: %p\n", unlock_Cheat_SuperUser_symbol);
+
+	if (unlock_Cheat_SuperUser_symbol) {
+		printf("unlock_Cheat_SuperUser symbol data: %p %d %d\n", unlock_Cheat_SuperUser_symbol->union_type, unlock_Cheat_SuperUser_symbol->type, unlock_Cheat_SuperUser_symbol->sourceFileNameChecksum);
+		unlock_Cheat_SuperUser_symbol->union_type = 1;
+	}
+	// QString patches | NOT YET WORKING
+	Script::CSymbolTableEntry* debug_menu_qsymbol = Script::Resolve(2950671652);
+	printf("debug_menu qsymbol: %p\n", debug_menu_qsymbol);
+
+	if (debug_menu_qsymbol) {
+		printf("debug_menu qsymbol data: %p %d %d\n", debug_menu_qsymbol->union_type, debug_menu_qsymbol->type, debug_menu_qsymbol->sourceFileNameChecksum);
+		debug_menu_qsymbol->union_type = 623432161;
+	}
+	//Debug Menu
+	Script::CSymbolTableEntry* debug_menu_popup_qsymbol = Script::Resolve(681849159);
+	printf("debug_menu_popup qsymbol: %p\n", debug_menu_qsymbol);
+
+	if (debug_menu_popup_qsymbol) {
+		printf("debug_menu_popup qsymbol data: %p %d %d\n", debug_menu_popup_qsymbol->union_type, debug_menu_popup_qsymbol->type, debug_menu_popup_qsymbol->sourceFileNameChecksum);
+		debug_menu_popup_qsymbol->union_type = 2381295399;
+	}
 	// apply patches
 	CFuncs::RegisterCFuncs();
 	// Exit thread using syscall directly and not the user mode library or else we will crash

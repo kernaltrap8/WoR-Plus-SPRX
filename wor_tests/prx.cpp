@@ -34,7 +34,7 @@ extern "C" uint64_t strlen(const char *s) {
 extern "C" int _wor_tests_prx_entry(void)
 {	
 	printf("WoRmod %s loaded.\n", VERSION);
-	printf("Sleeping for 10secs before applying patches.")
+	printf("Sleeping for 10secs before applying patches.\n");
 	_sys_timer_sleep(10);
 	// enable_button_cheats | for debug menu
 	Script::CSymbolTableEntry* enable_button_cheats_symbol = Script::Resolve(720971780);

@@ -11,10 +11,6 @@ void _sys_ppu_thread_exit(int exit_code) {
 	system_call_1(41,(uint64_t)exit_code);
 }
 
-void _sys_console_write(const char *s, uint32_t len) {
-	system_call_2(398,(uint64_t)s, len);
-}
-
 void _sys_tty_write(uint32_t ch, const void *buf, uint32_t len, uint32_t *pwritelen) {
 	system_call_4(403, (uint64_t)ch, (uint64_t)buf, (uint64_t)len, (uint64_t)pwritelen);
 }

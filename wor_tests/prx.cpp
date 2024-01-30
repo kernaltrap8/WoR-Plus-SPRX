@@ -3,7 +3,6 @@
 #include "main.h"
 #include "printf.h"
 #include "syscalls.h"
-#include "detour\Detour.h"
 #include "scripting/script.h"
 #define VERSION "v1.1r5 alpha-release"
 
@@ -67,40 +66,6 @@ extern "C" int _wor_tests_prx_entry(void)
 		printf("allow_controller_for_all_instruments data: %p %d %d\n", allow_controller_for_all_instruments_symbol->union_type, allow_controller_for_all_instruments_symbol->type, allow_controller_for_all_instruments_symbol->sourceFileNameChecksum);
 		allow_controller_for_all_instruments_symbol->union_type = 1;
 	}
-	// g_career_skip_naration
-	Script::CSymbolTableEntry* g_career_skip_naration_symbol = Script::Resolve(2634030452);
-	printf("g_career_skip_naration symbol: %p\n", g_career_skip_naration_symbol);
-
-	if (g_career_skip_naration_symbol) {
-		printf("g_career_skip_naration symbol data: %p %d %d\n", g_career_skip_naration_symbol->union_type, g_career_skip_naration_symbol->type, g_career_skip_naration_symbol->sourceFileNameChecksum);
-		g_career_skip_naration_symbol->union_type = 1;
-	}
-	// unlock_Cheat_SuperUser
-	Script::CSymbolTableEntry* unlock_Cheat_SuperUser_symbol = Script::Resolve(785547704);
-	printf("unlock_Cheat_SuperUser symbol: %p\n", unlock_Cheat_SuperUser_symbol);
-
-	if (unlock_Cheat_SuperUser_symbol) {
-		printf("unlock_Cheat_SuperUser symbol data: %p %d %d\n", unlock_Cheat_SuperUser_symbol->union_type, unlock_Cheat_SuperUser_symbol->type, unlock_Cheat_SuperUser_symbol->sourceFileNameChecksum);
-		unlock_Cheat_SuperUser_symbol->union_type = 1;
-	}
-	// QString patches | NOT YET WORKING
-	Script::CSymbolTableEntry* debug_menu_qsymbol = Script::Resolve(2950671652);
-	printf("debug_menu qsymbol: %p\n", debug_menu_qsymbol);
-
-	if (debug_menu_qsymbol) {
-		printf("debug_menu qsymbol data: %p %d %d\n", debug_menu_qsymbol->union_type, debug_menu_qsymbol->type, debug_menu_qsymbol->sourceFileNameChecksum);
-		debug_menu_qsymbol->union_type = 623432161;
-	}
-	//Debug Menu
-	Script::CSymbolTableEntry* debug_menu_popup_qsymbol = Script::Resolve(681849159);
-	printf("debug_menu_popup qsymbol: %p\n", debug_menu_qsymbol);
-
-	if (debug_menu_popup_qsymbol) {
-		printf("debug_menu_popup qsymbol data: %p %d %d\n", debug_menu_popup_qsymbol->union_type, debug_menu_popup_qsymbol->type, debug_menu_popup_qsymbol->sourceFileNameChecksum);
-		debug_menu_popup_qsymbol->union_type = 2381295399;
-	}
-	// apply patches
-	CFuncs::RegisterCFuncs();
 	// Exit thread using syscall directly and not the user mode library or else we will crash
 	_sys_ppu_thread_exit(0);
     return SYS_PRX_RESIDENT;
@@ -109,11 +74,6 @@ extern "C" int _wor_tests_prx_entry(void)
 
 extern "C" int _wor_tests_prx_stop(void)
 {
-	//uint64_t retVal;
-	//sys_ppu_thread_join(gWORTthreadID, &retVal);
-
-	// Exit thread using directly the syscall and not the user mode library or else we will crash
 	_sys_ppu_thread_exit(0);
-
 	return SYS_PRX_RESIDENT;
 }

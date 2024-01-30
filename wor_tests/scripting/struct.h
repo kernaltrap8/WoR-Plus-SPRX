@@ -8,12 +8,8 @@ namespace Script {
 	extern int64_t (*AddChecksum)(CStruct *, int64_t crc, uint32_t value);
 	extern int64_t (*GetChecksum)(CStruct *, int64_t crc, uint32_t *value);
 	extern int64_t (*AddInteger)(CStruct *, int64_t crc, uint32_t value);
-
 	extern int64_t (*GetInteger)(CStruct *, int64_t crc, uint32_t *value);
 	extern int64_t (*GetString)(CStruct *, int64_t crc, wchar_t **value);
-
-
 	extern int64_t (*ContainsFlag)(CStruct *, int64_t crc);
-
 }
 #endif //_STRUCT_H

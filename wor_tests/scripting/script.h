@@ -12,9 +12,15 @@ namespace Script {
 		uint32_t union_type; //12
 		void *next;
 	} CSymbolTableEntry;
+
+
 	extern int64_t(*RunScript)(int64_t crc, CStruct* cstruct, unsigned int *unk, uint8_t unk1, uint64_t unk2, uint64_t unk3);
+
 	CSymbolTableEntry* Resolve(int32_t checksum);
 	void InsertSymbol(CSymbolTableEntry *entry);
+
+	
+
 	extern void *sp_script_manager;
 };
 

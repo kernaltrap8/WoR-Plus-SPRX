@@ -1,2 +1,2 @@
-# WoRmod-SPRX
-SPRX backend for WoRmod
+# WoRmod-SPRX-HEN
+HEN SPRX backend for WoRmod

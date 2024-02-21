@@ -5,7 +5,7 @@
 #include "syscalls.h"
 #include "detour\Detour.h"
 #include "scripting/script.h"
-#define VERSION "v1.2r6 alpha-release"
+#define VERSION "v1.2r9 alpha-release"
 
 SYS_MODULE_INFO( wor_tests, 0, 1, 1);
 SYS_MODULE_START( _wor_tests_prx_entry );
@@ -26,7 +26,7 @@ namespace QSymbol {
 	int InsertSymbol(uint32_t symbol, int symbolData, int g_EnablePrintf) {
 		Script::CSymbolTableEntry* gSymbol = Script::Resolve(symbol);
 		printf("symbol: %p\n", gSymbol);
-		if (g_EnablePrintf = 1) {
+		if (g_EnablePrintf == 1) {
 			printf("symbol data: %p %d %d\n", gSymbol->union_type, gSymbol->type, gSymbol->sourceFileNameChecksum);
 		}
 		if (gSymbol) {
@@ -44,7 +44,7 @@ void wor_test_main_thread(uint64_t args) {
 	QSymbol::InsertSymbol(42529484, 0, 0);
 	QSymbol::InsertSymbol(2590800659, 1, 0);
 	QSymbol::InsertSymbol(2634030452, 1, 0);
-	printf("Applied patches successfully.")
+	printf("Applied patches successfully.");
 }
 
 

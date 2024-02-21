@@ -42,7 +42,7 @@ void wor_test_main_thread(uint64_t args) {
 	// enable_button_cheats | for debug menu
 	QSymbol::InsertSymbol(720971780, 1, 0);
 	// debug_use_screen_noise | post processing FX disable
-	QSymbol::InsertSymbol(3786639802, 0, 0)
+	QSymbol::InsertSymbol(3786639802, 0, 0);
 	// debug_use_motion_blur | post processing FX disable
 	QSymbol::InsertSymbol(42529484, 0, 0);
 	// allow_controller_for_all_instruments
@@ -63,7 +63,7 @@ extern "C" uint64_t strlen(const char *s) {
 
 extern "C" int _wor_tests_prx_entry(void)
 {
-	sys_ppu_thread_create(&gWORTthreadID, wor_test_main_thread, 0, 3000, 4096 * 16, SYS_PPU_THREAD_CREATE_JOINABLE, "WoRmodHenMainThread");
+	sys_ppu_thread_create(&gWORTthreadID, wor_test_main_thread, 0, 3000, 4096 * 16, SYS_PPU_THREAD_CREATE_JOINABLE, "WoRmodMainThread");
     return SYS_PRX_RESIDENT;
 }
 
@@ -72,9 +72,6 @@ extern "C" int _wor_tests_prx_stop(void)
 {
 	uint64_t retVal;
 	sys_ppu_thread_join(gWORTthreadID, &retVal);
-
-	// Exit thread using directly the syscall and not the user mode library or else we will crash
-	_sys_ppu_thread_exit(0);
-
+	
 	return SYS_PRX_RESIDENT;
 }

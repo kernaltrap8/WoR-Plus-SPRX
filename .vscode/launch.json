@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/aiden/git/WoRmod-SPRX/wor_tests",
-      "program": "/home/aiden/git/WoRmod-SPRX/wor_tests/build/Debug/outDebug",
+      "cwd": "/home/aiden/git/WoRmod-SPRX/wor_tests/scripting",
+      "program": "/home/aiden/git/WoRmod-SPRX/wor_tests/scripting/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -1,56 +1,54 @@
-﻿Build started 2/20/2024 1:26:18 PM.
-     1>Project "C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\wor_tests.vcxproj" on node 2 (Build target(s)).
+﻿Build started 2/20/2024 7:08:40 PM.
+     1>Project "C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\wor_tests.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          Detour.cpp
-         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_wor_tests -DSTUBNAME=cellPrx_wor_tests_stub -o PS3_Debug\Detour.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\detour\Detour.cpp
-     1>C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\detour\Detour.h(213,25): warning 68: integer conversion resulted in a change of sign
+         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_wor_tests -DSTUBNAME=cellPrx_wor_tests_stub -o PS3_Debug\Detour.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\detour\Detour.cpp
+     1>C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\detour\Detour.h(213,25): warning 68: integer conversion resulted in a change of sign
          
-     1>C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\detour\Detour.h(284,25): warning 68: integer conversion resulted in a change of sign
+     1>C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\detour\Detour.h(284,25): warning 68: integer conversion resulted in a change of sign
          
-     1>C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\detour\Detour.h(282,15): warning 178: variable "InstructionAddress" was declared but never referenced
+     1>C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\detour\Detour.h(282,15): warning 178: variable "InstructionAddress" was declared but never referenced
          
          printf.cpp
-         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_wor_tests -DSTUBNAME=cellPrx_wor_tests_stub -o PS3_Debug\printf.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\printf.cpp
+         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_wor_tests -DSTUBNAME=cellPrx_wor_tests_stub -o PS3_Debug\printf.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\printf.cpp
          prx.cpp
-         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_wor_tests -DSTUBNAME=cellPrx_wor_tests_stub -o PS3_Debug\prx.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\prx.cpp
-     1>C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\detour\Detour.h(213,25): warning 68: integer conversion resulted in a change of sign
+         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_wor_tests -DSTUBNAME=cellPrx_wor_tests_stub -o PS3_Debug\prx.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\prx.cpp
+     1>C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\detour\Detour.h(213,25): warning 68: integer conversion resulted in a change of sign
          
-     1>C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\detour\Detour.h(284,25): warning 68: integer conversion resulted in a change of sign
+     1>C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\detour\Detour.h(284,25): warning 68: integer conversion resulted in a change of sign
          
-     1>C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\detour\Detour.h(282,15): warning 178: variable "InstructionAddress" was declared but never referenced
+     1>C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\detour\Detour.h(282,15): warning 178: variable "InstructionAddress" was declared but never referenced
          
-     1>C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\prx.cpp(38,76): warning 68: integer conversion resulted in a change of sign
+     1>C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\prx.cpp(29,6): warning 1780: use of "=" where "==" may have been intended
          
-     1>C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\prx.cpp(54,90): warning 68: integer conversion resulted in a change of sign
+     1>C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\prx.cpp(35,1): warning 942: missing return statement at end of non-void function "QSymbol::InsertSymbol"
          
-     1>C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\prx.cpp(62,76): warning 68: integer conversion resulted in a change of sign
+     1>C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\prx.cpp(26,55): warning 552: parameter "g_EnablePrintf" was set but never used
          
-     1>C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\prx.cpp(78,65): warning 68: integer conversion resulted in a change of sign
-         
-     1>C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\prx.cpp(96,20): warning 339: more than one instance of overloaded function "std::strlen" has "C" linkage
+     1>C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\prx.cpp(50,20): warning 339: more than one instance of overloaded function "std::strlen" has "C" linkage
          
          cfuncs.cpp
-         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_wor_tests -DSTUBNAME=cellPrx_wor_tests_stub -o PS3_Debug\cfuncs.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\scripting\cfuncs.cpp
-     1>C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\scripting\../detour/Detour.h(213,25): warning 68: integer conversion resulted in a change of sign
+         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_wor_tests -DSTUBNAME=cellPrx_wor_tests_stub -o PS3_Debug\cfuncs.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\scripting\cfuncs.cpp
+     1>C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\scripting\../detour/Detour.h(213,25): warning 68: integer conversion resulted in a change of sign
          
-     1>C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\scripting\..\detour\Detour.h(284,25): warning 68: integer conversion resulted in a change of sign
+     1>C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\scripting\..\detour\Detour.h(284,25): warning 68: integer conversion resulted in a change of sign
          
-     1>C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\scripting\..\detour\Detour.h(282,15): warning 178: variable "InstructionAddress" was declared but never referenced
+     1>C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\scripting\..\detour\Detour.h(282,15): warning 178: variable "InstructionAddress" was declared but never referenced
          
          script.cpp
-         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_wor_tests -DSTUBNAME=cellPrx_wor_tests_stub -o PS3_Debug\script.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\scripting\script.cpp
+         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_wor_tests -DSTUBNAME=cellPrx_wor_tests_stub -o PS3_Debug\script.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\scripting\script.cpp
          struct.cpp
-         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_wor_tests -DSTUBNAME=cellPrx_wor_tests_stub -o PS3_Debug\struct.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\scripting\struct.cpp
+         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_wor_tests -DSTUBNAME=cellPrx_wor_tests_stub -o PS3_Debug\struct.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\scripting\struct.cpp
          show_dump.cpp
-         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_wor_tests -DSTUBNAME=cellPrx_wor_tests_stub -o PS3_Debug\show_dump.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\show_dump.cpp
+         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_wor_tests -DSTUBNAME=cellPrx_wor_tests_stub -o PS3_Debug\show_dump.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\show_dump.cpp
          syscalls.cpp
-         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_wor_tests -DSTUBNAME=cellPrx_wor_tests_stub -o PS3_Debug\syscalls.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\syscalls.cpp
+         ps3ppusnc.exe -D_DEBUG -D__CELL_ASSERT__ -D__PS3__ -DLIBNAME=cellPrx_wor_tests -DSTUBNAME=cellPrx_wor_tests_stub -o PS3_Debug\syscalls.o -c -Xdepmode=1 -MD -Xmserrors -I. -IC:/usr/local/cell\target\ppu\include -IC:/usr/local/cell\target\common\include -I"C:/usr/local/cell\host-win32\sn\ppu\include" -g -O0 -Xc-=rtti C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\syscalls.cpp
        Link:
-         C:\usr\local\cell\host-win32\sn\bin\ps3ppuld64.exe -oformat=fsprx -o "C:\Users\AidenVM\git\WoRmod-SPRX-HEN\PS3_Debug\wor_tests.sprx" -L"C:/usr/local/cell\host-win32\lib\prx\ldscripts" --start-group PS3_Debug\Detour.o PS3_Debug\printf.o PS3_Debug\prx.o PS3_Debug\cfuncs.o PS3_Debug\script.o PS3_Debug\struct.o PS3_Debug\show_dump.o PS3_Debug\syscalls.o libsn.a libm.a libio_stub.a libfs_stub.a --end-group
-         wor_tests.vcxproj -> C:\Users\AidenVM\git\WoRmod-SPRX-HEN\PS3_Debug\wor_tests.sprx
-         Moving Stub Library cellPrx_wor_tests_stub.a -> C:\Users\AidenVM\git\WoRmod-SPRX-HEN\PS3_Debug\
-     1>Done Building Project "C:\Users\AidenVM\git\WoRmod-SPRX-HEN\wor_tests\wor_tests.vcxproj" (Build target(s)).
+         C:\usr\local\cell\host-win32\sn\bin\ps3ppuld64.exe -oformat=fsprx -o "C:\Users\AidenVM\git\WoRmod-SPRX\PS3_Debug\wor_tests.sprx" -L"C:/usr/local/cell\host-win32\lib\prx\ldscripts" --start-group PS3_Debug\Detour.o PS3_Debug\printf.o PS3_Debug\prx.o PS3_Debug\cfuncs.o PS3_Debug\script.o PS3_Debug\struct.o PS3_Debug\show_dump.o PS3_Debug\syscalls.o libsn.a libm.a libio_stub.a libfs_stub.a --end-group
+         wor_tests.vcxproj -> C:\Users\AidenVM\git\WoRmod-SPRX\PS3_Debug\wor_tests.sprx
+         Moving Stub Library cellPrx_wor_tests_stub.a -> C:\Users\AidenVM\git\WoRmod-SPRX\PS3_Debug\
+     1>Done Building Project "C:\Users\AidenVM\git\WoRmod-SPRX\wor_tests\wor_tests.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.94
+Time Elapsed 00:00:02.90

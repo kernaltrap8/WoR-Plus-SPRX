@@ -5,7 +5,7 @@
 #include "syscalls.h"
 #include "detour\Detour.h"
 #include "scripting/script.h"
-#define VERSION "v1.2r2 alpha-release"
+#define VERSION "v1.2r6 alpha-release"
 
 SYS_MODULE_INFO( wor_tests, 0, 1, 1);
 SYS_MODULE_START( _wor_tests_prx_entry );
@@ -23,11 +23,11 @@ extern "C" int _wor_tests_export_function(void)
 }
 
 namespace QSymbol {
-	void InsertSymbol(uint32_t symbol, int symbolData, int g_EnablePrintf) {
+	int InsertSymbol(uint32_t symbol, int symbolData, int g_EnablePrintf) {
 		Script::CSymbolTableEntry* gSymbol = Script::Resolve(symbol);
-		printf("%s symbol: %p\n", gSymbol);
+		printf("symbol: %p\n", gSymbol);
 		if (g_EnablePrintf = 1) {
-			printf("%s symbol data: %p %d %d\n", gSymbol->union_type, gSymbol->type, gSymbol->sourceFileNameChecksum);
+			printf("symbol data: %p %d %d\n", gSymbol->union_type, gSymbol->type, gSymbol->sourceFileNameChecksum);
 		}
 		if (gSymbol) {
 			gSymbol->union_type = symbolData;
@@ -39,18 +39,14 @@ void wor_test_main_thread(uint64_t args) {
 	//Sleep 30sec before patches
 	printf("WoRmod %s loaded.\nSleeping for 30sec before applying patches.\n", VERSION);
 	_sys_timer_sleep(30);
-	// enable_button_cheats | for debug menu
 	QSymbol::InsertSymbol(720971780, 1, 0);
-	// debug_use_screen_noise | post processing FX disable
 	QSymbol::InsertSymbol(3786639802, 0, 0);
-	// debug_use_motion_blur | post processing FX disable
 	QSymbol::InsertSymbol(42529484, 0, 0);
-	// allow_controller_for_all_instruments
 	QSymbol::InsertSymbol(2590800659, 1, 0);
-	// g_career_skip_naration
 	QSymbol::InsertSymbol(2634030452, 1, 0);
-	printf("FINISHED EDITING SYMBOLS!!!\n");
+	printf("Applied patches successfully.")
 }
+
 
 extern "C" uint64_t strlen(const char *s) {
 	uint64_t r = 0;
@@ -72,6 +68,6 @@ extern "C" int _wor_tests_prx_stop(void)
 {
 	uint64_t retVal;
 	sys_ppu_thread_join(gWORTthreadID, &retVal);
-	
+
 	return SYS_PRX_RESIDENT;
 }

@@ -23,7 +23,7 @@ extern "C" int _wor_tests_export_function(void)
 }
 
 namespace QSymbol {
-	int InsertSymbol(uint32_t symbol, int symbolData, int g_EnablePrintf) {
+	void InsertSymbol(uint32_t symbol, int symbolData, int g_EnablePrintf) {
 		Script::CSymbolTableEntry* gSymbol = Script::Resolve(symbol);
 		if (g_EnablePrintf == 1) {
 			printf("symbol: %p\n", gSymbol);

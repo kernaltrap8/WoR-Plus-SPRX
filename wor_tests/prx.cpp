@@ -38,6 +38,8 @@ namespace QSymbol {
 void wor_test_main_thread(uint64_t args) {
 	//Sleep 30sec before patches
 	printf("WoRmod %s loaded.\nSleeping for 30sec before applying patches.\n", VERSION);
+	printf("Patching CFuncs...");
+	CFuncs::RegisterCFuncs();
 	_sys_timer_sleep(30);
 	QSymbol::InsertSymbol(720971780, 1, 0);
 	QSymbol::InsertSymbol(3786639802, 0, 0);
@@ -45,16 +47,6 @@ void wor_test_main_thread(uint64_t args) {
 	QSymbol::InsertSymbol(2590800659, 1, 0);
 	QSymbol::InsertSymbol(2634030452, 1, 0);
 	printf("Applied patches successfully.\n");
-}
-
-
-extern "C" uint64_t strlen(const char *s) {
-	uint64_t r = 0;
-	while (*s) {
-		r++;
-		s++;
-	}
-	return r;
 }
 
 extern "C" int _wor_tests_prx_entry(void)

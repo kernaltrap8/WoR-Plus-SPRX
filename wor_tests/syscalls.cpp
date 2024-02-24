@@ -28,7 +28,11 @@ void _sys_ppu_thread_exit(int exit_code) {
 	system_call_1(41,(uint64_t)exit_code);
 }
 int _sys_dbg_write_process_memory(sys_pid_t pid, uint64_t process_ea, uint32_t size, const void* data) {
-	system_call_4(905,(uint64_t)(uint32_t)pid, process_ea, (uint64_t)size, (uint64_t)(uint32_t)data);
+	//CFW/DEX write_proc_mem
+	//system_call_4(905,(uint64_t)(uint32_t)pid, process_ea, (uint64_t)size, (uint64_t)(uint32_t)data);
+	//return_to_user_prog(int);
+	//HEN/CEX write_proc_mem
+	system_call_6(8, 0x7777, 0x32, (uint64_t)pid, process_ea, (uint64_t)data, size);
 	return_to_user_prog(int);
 }
 sys_pid_t _sys_process_getpid() {

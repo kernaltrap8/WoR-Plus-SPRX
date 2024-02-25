@@ -6,8 +6,7 @@
 #include "detour\Detour.h"
 #include "scripting/script.h"
 #define VERSION "v1.3 alpha-release"
-#define DebugPrintfStuff 1
-#define gCD 1
+int gCD = 1;
 
 SYS_MODULE_INFO( wor_tests, 0, 1, 1);
 SYS_MODULE_START( _wor_tests_prx_entry );
@@ -39,15 +38,8 @@ namespace QSymbol {
 
 namespace ghwor {
 	void ApplyPatches() {
-		if (DebugPrintfStuff == 1) {
-			printf("Patching CFuncs...");
-			CFuncs::RegisterCFuncs();
-		} else {
-			printf("CFunc patches are disabled on this build.\n");
-		}
-
 		if (gCD == 1) {
-			printf("gCD = %i", gCD);
+			printf("gCD = %i\n", gCD);
 			QSymbol::InsertSymbol(720971780, 1, 0);
 		}
 
@@ -61,7 +53,15 @@ namespace ghwor {
 
 void wor_test_main_thread(uint64_t args) {
 	//Sleep 30sec before patches
+	int DebugPrintfStuff = 1;
 	printf("WoRmod %s loaded.\nSleeping for 30sec before applying patches.\n", VERSION);
+	if (DebugPrintfStuff == 1) {
+		printf("Patching CFuncs...\n");
+		CFuncs::RegisterCFuncs();
+	}
+	else {
+		printf("CFunc patches are disabled on this build.\n");
+	}
 	_sys_timer_sleep(30);
 	ghwor::ApplyPatches();
 }

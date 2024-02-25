@@ -24,7 +24,7 @@ extern "C" int _wor_tests_export_function(void)
 }
 
 namespace QSymbol {
-	void InsertSymbol(uint32_t symbol, int symbolData, int g_EnablePrintf) {
+	void EditSymbol(uint32_t symbol, int symbolData, int g_EnablePrintf) {
 		Script::CSymbolTableEntry* gSymbol = Script::Resolve(symbol);
 		if (g_EnablePrintf == 1) {
 			printf("symbol address: %p\n", gSymbol);
@@ -40,13 +40,13 @@ namespace ghwor {
 	void ApplyPatches() {
 		if (gCD == 1) {
 			printf("gCD = %i\n", gCD);
-			QSymbol::InsertSymbol(720971780, 1, 0);
+			QSymbol::EditSymbol(720971780, 1, 0);
 		}
 
-		QSymbol::InsertSymbol(3786639802, 0, 0);
-		QSymbol::InsertSymbol(42529484, 0, 0);
-		QSymbol::InsertSymbol(2590800659, 1, 0);
-		QSymbol::InsertSymbol(2634030452, 1, 0);
+		QSymbol::EditSymbol(3786639802, 0, 0);
+		QSymbol::EditSymbol(42529484, 0, 0);
+		QSymbol::EditSymbol(2590800659, 1, 0);
+		QSymbol::EditSymbol(2634030452, 1, 0);
 		printf("Applied patches successfully.\n");
 	}
 }

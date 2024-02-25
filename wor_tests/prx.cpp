@@ -6,7 +6,6 @@
 #include "detour\Detour.h"
 #include "scripting/script.h"
 #define VERSION "v1.3 alpha-release"
-int gCD = 1;
 
 SYS_MODULE_INFO( wor_tests, 0, 1, 1);
 SYS_MODULE_START( _wor_tests_prx_entry );
@@ -38,16 +37,21 @@ namespace QSymbol {
 
 namespace ghwor {
 	void ApplyPatches() {
-		if (gCD == 1) {
-			printf("gCD = %i\n", gCD);
-			QSymbol::EditSymbol(720971780, 1, 0);
+		int gCD = 1;
+		int g_EnablePatches = 1;
+		if (g_EnablePatches == 1) {
+			if (gCD == 1) {
+				printf("gCD = %i\n", gCD);
+				QSymbol::EditSymbol(720971780, 1, 0);
+			}
+			QSymbol::EditSymbol(3786639802, 0, 0);
+			QSymbol::EditSymbol(42529484, 0, 0);
+			QSymbol::EditSymbol(2590800659, 1, 0);
+			QSymbol::EditSymbol(2634030452, 1, 0);
+			printf("Applied patches successfully.\n");
+		} else {
+			printf("QSymbol patches are disabled on this build.\n");
 		}
-
-		QSymbol::EditSymbol(3786639802, 0, 0);
-		QSymbol::EditSymbol(42529484, 0, 0);
-		QSymbol::EditSymbol(2590800659, 1, 0);
-		QSymbol::EditSymbol(2634030452, 1, 0);
-		printf("Applied patches successfully.\n");
 	}
 }
 

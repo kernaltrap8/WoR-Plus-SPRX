@@ -5,7 +5,7 @@
 #include "syscalls.h"
 #include "detour\Detour.h"
 #include "scripting/script.h"
-#define VERSION "v1.2r9 alpha-release"
+#define VERSION "v1.3 alpha-release"
 #define DebugPrintfStuff 1
 #define gCD 1
 

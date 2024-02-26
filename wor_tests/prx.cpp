@@ -42,12 +42,14 @@ namespace ghwor {
 		if (g_EnablePatches == 1) {
 			if (gCD == 1) {
 				printf("gCD = %i\n", gCD);
-				QSymbol::EditSymbol(720971780, 1, 0);
+				QSymbol::EditSymbol(720971780, 1, 1);
+				QSymbol::EditSymbol(1776699150, 1, 1);
+				QSymbol::EditSymbol(2792038869, 1, 1)
 			}
-			QSymbol::EditSymbol(3786639802, 0, 0);
-			QSymbol::EditSymbol(42529484, 0, 0);
-			QSymbol::EditSymbol(2590800659, 1, 0);
-			QSymbol::EditSymbol(2634030452, 1, 0);
+			QSymbol::EditSymbol(3786639802, 0, 1);
+			QSymbol::EditSymbol(42529484, 0, 1);
+			QSymbol::EditSymbol(2590800659, 1, 1);
+			QSymbol::EditSymbol(2634030452, 1, 1);
 			printf("Applied patches successfully.\n");
 		} else {
 			printf("QSymbol patches are disabled on this build.\n");
@@ -57,7 +59,7 @@ namespace ghwor {
 
 void wor_test_main_thread(uint64_t args) {
 	//Sleep 30sec before patches
-	int DebugPrintfStuff = 1;
+	int DebugPrintfStuff = 0;
 	printf("ghwor_plugin %s loaded.\nSleeping for 30sec before applying patches.\n", VERSION);
 	if (DebugPrintfStuff == 1) {
 		printf("Patching CFuncs...\n");

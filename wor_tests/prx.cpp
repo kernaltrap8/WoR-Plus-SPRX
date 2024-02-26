@@ -5,7 +5,7 @@
 #include "syscalls.h"
 #include "detour\Detour.h"
 #include "scripting/script.h"
-#define VERSION "v1.3 alpha-release"
+#define VERSION "v1.3r2 alpha-release"
 
 SYS_MODULE_INFO( ghwor_plugin, 0, 1, 1);
 SYS_MODULE_START( _wor_tests_prx_entry );

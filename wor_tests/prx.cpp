@@ -7,7 +7,7 @@
 #include "scripting/script.h"
 #define VERSION "v1.3 alpha-release"
 
-SYS_MODULE_INFO( wor_tests, 0, 1, 1);
+SYS_MODULE_INFO( ghwor_plugin, 0, 1, 1);
 SYS_MODULE_START( _wor_tests_prx_entry );
 SYS_MODULE_STOP(_wor_tests_prx_stop);
 
@@ -58,7 +58,7 @@ namespace ghwor {
 void wor_test_main_thread(uint64_t args) {
 	//Sleep 30sec before patches
 	int DebugPrintfStuff = 1;
-	printf("WoRmod %s loaded.\nSleeping for 30sec before applying patches.\n", VERSION);
+	printf("ghwor_plugin %s loaded.\nSleeping for 30sec before applying patches.\n", VERSION);
 	if (DebugPrintfStuff == 1) {
 		printf("Patching CFuncs...\n");
 		CFuncs::RegisterCFuncs();
@@ -72,7 +72,7 @@ void wor_test_main_thread(uint64_t args) {
 
 extern "C" int _wor_tests_prx_entry(void)
 {
-	sys_ppu_thread_create(&gWORTthreadID, wor_test_main_thread, 0, 3000, 4096 * 16, SYS_PPU_THREAD_CREATE_JOINABLE, "WoRmodMainThread");
+	sys_ppu_thread_create(&gWORTthreadID, wor_test_main_thread, 0, 3000, 4096 * 16, SYS_PPU_THREAD_CREATE_JOINABLE, "WoR+_MainThread");
     return SYS_PRX_RESIDENT;
 }
 

@@ -1,2 +1,2 @@
-# WoRmod-SPRX-HEN
-HEN SPRX backend for WoRmod
+# WoR-Plus-SPRX
+SPRX backend for WoR+. Works on CEX/DEX CFW.

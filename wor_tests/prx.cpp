@@ -59,10 +59,11 @@ namespace ghwor {
 
 void wor_test_main_thread(uint64_t args) {
 	//Sleep 30sec before patches
-	int DebugPrintfStuff = 0;
+	int DebugPrintfStuff = 1;
 	printf("ghwor_plugin %s loaded.\nSleeping for 30sec before applying patches.\n", VERSION);
 	if (DebugPrintfStuff == 1) {
 		printf("Patching CFuncs...\n");
+		CFuncs::ScriptPrintf();
 		CFuncs::RegisterCFuncs();
 	}
 	else {

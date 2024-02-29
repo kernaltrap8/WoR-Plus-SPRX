@@ -1,7 +1,6 @@
 #include "script.h"
 #include "struct.h"
 #include "../printf.h"
-
 #include "../show_dump.h"
 #include "../detour/Detour.h"
 namespace CFuncs {
@@ -9,7 +8,6 @@ namespace CFuncs {
 	opd_t s_get_string_from_params_opd = { 0x499E0, BASE_TOC };
 	bool (*s_get_string_from_params)(char *buffer, int sz, Script::CStruct *pParams) = (bool(*)(char *, int, Script::CStruct *))&s_get_string_from_params_opd;
 	void RegisterCFuncs() {
-
 		//patch printf
 		opd_t *printf_opd = (opd_t*)&ScriptPrintf;
 		branchInstruction *popmemprofile_entry = (branchInstruction *)0x49FAC;
@@ -21,8 +19,6 @@ namespace CFuncs {
 
 		Detour::LocalExecutableScratchpad += Detour::WriteFarBranch((UINT32 *)Detour::LocalExecutableScratchpad, (void *)printf_opd->sub, false, true);
 		_sys_dbg_write_process_memory(_sys_process_getpid(), (uint64_t)popmemprofile_entry, sizeof(branchInstruction), &popmemprofile_entry_cpy);
-		//
-		
 	}
 
 	bool ScriptPrintf(Script::CStruct *pParams) {

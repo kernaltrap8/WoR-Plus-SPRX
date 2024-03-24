@@ -3,22 +3,23 @@
 #include "main.h"
 #include "printf.h"
 #include "syscalls.h"
+#include "detour\Detour.h"
 #include "scripting/script.h"
 #define VERSION "v1.3r4 alpha-release"
 
-SYS_MODULE_INFO(ghwor_plugin, 0, 1, 1);
-SYS_MODULE_START(_wor_tests_prx_entry);
+SYS_MODULE_INFO( ghwor_plugin, 0, 1, 1);
+SYS_MODULE_START( _wor_tests_prx_entry );
 SYS_MODULE_STOP(_wor_tests_prx_stop);
 
-SYS_LIB_DECLARE_WITH_STUB(LIBNAME, SYS_LIB_AUTO_EXPORT, STUBNAME);
-SYS_LIB_EXPORT(_wor_tests_export_function, LIBNAME);
+SYS_LIB_DECLARE_WITH_STUB( LIBNAME, SYS_LIB_AUTO_EXPORT, STUBNAME );
+SYS_LIB_EXPORT( _wor_tests_export_function, LIBNAME );
 
 sys_ppu_thread_t gWORTthreadID = SYS_PPU_THREAD_ID_INVALID;
 
 // An exported function is needed to generate the project's PRX stub export library
 extern "C" int _wor_tests_export_function(void)
 {
-	return CELL_OK;
+    return CELL_OK;
 }
 
 namespace QSymbol {
@@ -30,6 +31,9 @@ namespace QSymbol {
 		}
 		if (gSymbol) {
 			gSymbol->union_type = symbolData;
+		}
+		else {
+			printf("Could not resolve %d!", symbol);
 		}
 	}
 }
@@ -43,14 +47,14 @@ namespace ghwor {
 				printf("gCD = %i\n", gCD);
 				QSymbol::EditSymbol(720971780, 1, 1);
 				QSymbol::EditSymbol(1776699150, 1, 1);
+				QSymbol::EditSymbol(2792038869, 1, 1);
 			}
 			QSymbol::EditSymbol(3786639802, 0, 1);
 			QSymbol::EditSymbol(42529484, 0, 1);
 			QSymbol::EditSymbol(2590800659, 1, 1);
 			QSymbol::EditSymbol(2634030452, 1, 1);
 			printf("Applied patches successfully.\n");
-		}
-		else {
+		} else {
 			printf("QSymbol patches are disabled on this build.\n");
 		}
 	}
@@ -74,7 +78,7 @@ void wor_test_main_thread(uint64_t args) {
 extern "C" int _wor_tests_prx_entry(void)
 {
 	sys_ppu_thread_create(&gWORTthreadID, wor_test_main_thread, 0, 3000, 4096 * 16, SYS_PPU_THREAD_CREATE_JOINABLE, "WoR+_MainThread");
-	return SYS_PRX_RESIDENT;
+    return SYS_PRX_RESIDENT;
 }
 
 

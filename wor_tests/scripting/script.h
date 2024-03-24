@@ -4,7 +4,7 @@
 #include "struct.h"
 namespace Script {
 	typedef struct _CSymbolTableEntry{
-		uint32_t unk[2]; //0, 1
+		uint8_t unk[2]; //0, 1
 		uint8_t type; //2
 		uint8_t unk2; //3
 		uint32_t checksum; //4

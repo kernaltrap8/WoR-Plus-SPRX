@@ -1,8 +1,11 @@
 #include <cellstatus.h>
 #include <sys/prx.h>
+#include <cstdlib.h>
+#include <cstdio.h>
 #include "main.h"
 #include "printf.h"
 #include "syscalls.h"
+#include "detour/Detour.h"
 #include "scripting/script.h"
 #define VERSION "v1.3r4 alpha-release"
 
@@ -21,23 +24,45 @@ extern "C" int _wor_tests_export_function(void)
 	return CELL_OK;
 }
 
+int file_parser(const char* file, const char* line_to_read) {
+	FILE* fileptr = fopen(file, "r"); // open the file to parse
+	if (fileptr == NULL) {
+		return -1;
+	}
+
+	char line[256]; // char buffer for parsing
+	while (fgets(line, sizeof(line), fileptr)) {
+		int val;
+		if (sscanf(line, line_to_read, &val) == 1) {
+			fclose(fileptr);
+			return val;
+		}
+	}
+
+	fclose(fileptr); // close file
+	return -1; // negative exit code - if we get here, an error occurred.
+}
+
 namespace QSymbol {
 	void EditSymbol(uint32_t symbol, int symbolData, int g_EnablePrintf) {
 		Script::CSymbolTableEntry* gSymbol = Script::Resolve(symbol);
+		int g_EnablePrintf = file_parser("worplus.ini", "g_EnablePrintf = %d");
 		if (g_EnablePrintf == 1) {
 			printf("symbol address: %p\n", gSymbol);
 			printf("symbol data: %p %d %d\n", gSymbol->union_type, gSymbol->type, gSymbol->sourceFileNameChecksum);
 		}
 		if (gSymbol) {
 			gSymbol->union_type = symbolData;
+		} else {
+			printf("Could not resolve symbol %d!\n", symbol);
 		}
 	}
 }
 
 namespace ghwor {
 	void ApplyPatches() {
-		int gCD = 1;
-		int g_EnablePatches = 1;
+		int gCD = file_parser("worplus.ini", "gCD = %d");
+		int g_EnablePatches = file_parser("worplus.ini", "g_EnablePatches = %d");
 		if (g_EnablePatches == 1) {
 			if (gCD == 1) {
 				printf("gCD = %i\n", gCD);
@@ -58,7 +83,8 @@ namespace ghwor {
 
 void wor_test_main_thread(uint64_t args) {
 	//Sleep 30sec before patches
-	int DebugPrintfStuff = 0;
+	int DebugPrintfStuff = file_parser("worplus.ini", "DebugPrintfStuff = %d");
+	int sleepTime = file_parser("worplus.ini", "sleepTime = %d");
 	printf("ghwor_plugin %s loaded.\nSleeping for 30sec before applying patches.\n", VERSION);
 	if (DebugPrintfStuff == 1) {
 		printf("Patching CFuncs...\n");
@@ -67,7 +93,7 @@ void wor_test_main_thread(uint64_t args) {
 	else {
 		printf("CFunc patches are disabled on this build.\n");
 	}
-	_sys_timer_sleep(30);
+	_sys_timer_sleep(sleepTime);
 	ghwor::ApplyPatches();
 }
 
